@@ -22,35 +22,32 @@ La estructura del repositorio es la siguiente:
 ```
 automatizacion-flujos/
 ├── app/
-│   ├── __init__.py
+│   ├── app.py
 │   ├── api.py
 │   ├── demonio.py
-│   ├── dependencies.py
 │   ├── flujos/
 │   │   ├── reportes/
 │   │   │   ├── receta.yml
-│   │   │   ├── Reporte.py
 │   │   │   ├── templates/
 │   │   │   │   ├── validacion_datos.j2
 │   │   │   │   ├── procesamiento_datos.j2
 │   │   │   │   ├── generacion_informe.j2
 │   │   ├── facturacion/
 │   │   │   ├── receta.yml
-│   │   │   ├── Factura.py
 │   │   │   ├── templates/
 │   │   │   │   ├── verificacion_pagos.j2
 │   │   │   │   ├── generacion_factura.j2
 │   │   │   │   ├── envio_notificacion.j2
-├── tests/
-│   └── test_api.py
+├── diagrams/
+│   ├── flujo_facturacion.md
+│   ├── flujo_reportes.md
 ├── requirements.txt
 └── README.md
 ```
 - **app/api.py**: Define los endpoints de la API para iniciar y consultar flujos.
 - **app/demonio.py**: Simula la ejecución de los pasos del flujo, actualizando el estado en la base de datos.
 - **app/flujos/**: Contiene las definiciones de los modelos utilizando SQLAlchemy las recetas que orquestan el flujo y las plantillas.
-- **diagrams/flujo_automatizado.pdf**: Diagrama visual que ilustra el proceso de automatización.
-- **tests/test_api.py**: Pruebas unitarias para asegurar el correcto funcionamiento de la API.
+- **diagrams/**: Diagramas visuales que ilustran el proceso de automatización de cada flujo.
 
 ## Instalación y Ejecución
 
@@ -65,7 +62,6 @@ automatizacion-flujos/
 
    ```bash
    git clone https://github.com/profileit/automatizacion-flujo-recurrentes.git
-   cd automatizacion-flujos
    ```
 
 2. **Instalar dependencias:**
@@ -93,10 +89,3 @@ automatizacion-flujos/
 - Puedes editar los archivos receta.yml para definir nuevos pasos o dependencias.
 - Cada paso puede tener una plantilla .j2 asociada para generar contenido dinámico (JSON, reportes, etc.).
 - Para un control de estados más completo, amplía la lógica en demonio.py y dependencies.py.
-
-## Tests
-Para ejecutar las pruebas:
-
-   ```bash
-   python -m unittest discover tests
-   ```

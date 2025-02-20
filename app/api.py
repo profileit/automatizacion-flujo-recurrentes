@@ -184,7 +184,6 @@ if __name__ == "__main__":
     """
     Ejecutar la API con Swagger:
     http://127.0.0.1:5000/api
-    Documentación: http://127.0.0.1:5000/api/
     """
     app = create_api_app()
     app.run(debug=True, host="0.0.0.0", port=os.getenv("PORT", 5000))
